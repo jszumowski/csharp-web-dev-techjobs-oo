@@ -38,5 +38,17 @@ namespace TechJobsOO
         {
             return HashCode.Combine(Id);
         }
+
+        public override string ToString()
+        {
+            return "/n " +
+                "ID: " + Id +
+                "Name: " + Name +
+                "Employer: " + EmployerName +
+                "Loaction: " + EmployerLocation + 
+                "Position Type: " + JobType + 
+                "Core Competency: " + JobCoreCompetency +
+                "/n";
+        }
     }
 }

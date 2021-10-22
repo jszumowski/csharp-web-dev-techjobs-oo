@@ -4,7 +4,7 @@ using TechJobsOO;
 namespace TestProject1TechJobsTests
 {
     public class JobTests
-    {
+    { 
         [TestMethod]
         public void TestSettingJobId()
         {
@@ -32,6 +32,24 @@ namespace TestProject1TechJobsTests
             Assert.IsFalse(test_job_one.Equals(test_job_two));
         }
 
+        [TestMethod]
+        public void TestJobsToStringCreatesBlankLinesBeforeAndAfterData()
+        {
+            Job test_job_one = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            //hmmm this one is pretty tough!
+        }
+
+        public void TestJobsToStringCreatesALabelForEachField()
+        {
+            Job test_job_one = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            //again i really don't know how to test for contents of a string!
+        }
+
+        public void TestJobsToStringReturnsForUnavailableData()
+        {
+            Job test_job_one = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            //i guess i need to add a for each loop to add data not available for any empty values?
+        }
 
     }
 }
