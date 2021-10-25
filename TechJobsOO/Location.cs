@@ -3,14 +3,12 @@ namespace TechJobsOO
 {
     public class Location : JobField
     {
-        public Location()
+        public Location() : base()
         {
-            Id = nextId;
-            nextId++;
         }
-        public Location(string value)
+
+        public Location(string value) : base(value)
         {
-            Value = value;
         }
     }
 }

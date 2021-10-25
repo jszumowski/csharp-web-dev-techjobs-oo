@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TechJobsOO
 {
     public class Job
@@ -12,7 +14,6 @@ namespace TechJobsOO
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
 
-        // TODO: Add the two necessary constructors.
         public Job()
         {
             Id = nextId;
@@ -27,7 +28,6 @@ namespace TechJobsOO
             JobType = type;
             JobCoreCompetency = core;
         }
-        // TODO: Generate Equals() and GetHashCode() methods.
 
         public override bool Equals(object obj)
         {
@@ -39,16 +39,35 @@ namespace TechJobsOO
             return HashCode.Combine(Id);
         }
 
+        public void ReplaceEmptyStrings()
+        {
+            List<Object> jobData = new List<Object>();
+            jobData.Add(Name);
+            jobData.Add(EmployerName);
+            jobData.Add(EmployerLocation);
+            jobData.Add(JobType);
+            jobData.Add(JobCoreCompetency);
+
+            foreach(Object item in jobData){
+                if(item.Value == "")
+                {
+                    item.Value = "Data not available"
+                }
+            }
+        }
+
         public override string ToString()
         {
-            return "/n " +
-                "ID: " + Id +
-                "Name: " + Name +
-                "Employer: " + EmployerName +
-                "Loaction: " + EmployerLocation + 
-                "Position Type: " + JobType + 
-                "Core Competency: " + JobCoreCompetency +
-                "/n";
+            ReplaceEmptyStrings();
+
+            return $@" 
+            ID: {Id}
+            Name: {Name}
+            Employer: {EmployerName}
+            Location: {EmployerLocation}
+            Position Type: {JobType}
+            Core Competency: {JobCoreCompetency}
+            "
         }
     }
 }

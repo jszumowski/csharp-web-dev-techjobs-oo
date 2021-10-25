@@ -3,14 +3,12 @@ namespace TechJobsOO
 {
     public class CoreCompetency : JobField
     {
-        public CoreCompetency()
+        public CoreCompetency() : base()
         {
-            Id = nextId;
-            nextId++;
         }
-        public CoreCompetency(string value)
+
+        public CoreCompetency(string value) : base(value)
         {
-            Value = value;
         }
     }
 }

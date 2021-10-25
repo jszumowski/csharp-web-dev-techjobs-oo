@@ -3,14 +3,12 @@ namespace TechJobsOO
 {
     public class PositionType : JobField
     {
-        public PositionType()
+        public PositionType() : base()
         {
-            Id = nextId;
-            nextId++; 
         }
-        public PositionType(string value)
+
+        public PositionType(string value) : base(value)
         {
-            Value = value;
         }
     }
     

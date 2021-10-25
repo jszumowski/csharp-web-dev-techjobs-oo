@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TechJobsOO;
 
-namespace TestProject1TechJobsTests
+namespace TechJobsOO
 {
     public class JobTests
     { 
@@ -33,22 +33,27 @@ namespace TestProject1TechJobsTests
         }
 
         [TestMethod]
-        public void TestJobsToStringCreatesBlankLinesBeforeAndAfterData()
+        public void TestJobsToStringReturnsCorrectFormat()
         {
             Job test_job_one = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            //hmmm this one is pretty tough!
-        }
+            
+            string expectedResult = $@" 
+            ID: 1
+            Name: Product tester
+            Employer: ACME
+            Location: Desert
+            Position Type: Quality control
+            Core Competency: Persistence
+            "
 
-        public void TestJobsToStringCreatesALabelForEachField()
-        {
-            Job test_job_one = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            //again i really don't know how to test for contents of a string!
+            Assert.AreEqual(expectedResult, test_job_one.ToString());
         }
 
         public void TestJobsToStringReturnsForUnavailableData()
         {
-            Job test_job_one = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-            //i guess i need to add a for each loop to add data not available for any empty values?
+            Job test_job_three = new Job("Product tester", new Employer(), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+            test_job_three.ToString();
+            Assert.AreEqual("Data not available", test_job_one.EmployerName);
         }
 
     }
