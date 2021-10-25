@@ -42,7 +42,6 @@ namespace TechJobsOO
         public void ReplaceEmptyStrings()
         {
             List<Object> jobData = new List<Object>();
-            jobData.Add(Name);
             jobData.Add(EmployerName);
             jobData.Add(EmployerLocation);
             jobData.Add(JobType);
