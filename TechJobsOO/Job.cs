@@ -20,7 +20,7 @@ namespace TechJobsOO
             nextId++;
         }
 
-        public Job(string name, Employer employer, Location location, PositionType type, CoreCompetency core)
+        public Job(string name, Employer employer, Location location, PositionType type, CoreCompetency core) : this()
         {
             Name = name;
             EmployerName = employer;
@@ -41,16 +41,16 @@ namespace TechJobsOO
 
         public void ReplaceEmptyStrings()
         {
-            List<Object> jobData = new List<Object>();
-            jobData.Add(EmployerName);
-            jobData.Add(EmployerLocation);
-            jobData.Add(JobType);
-            jobData.Add(JobCoreCompetency);
+            List<String> jobData = new List<String>();
+            jobData.Add(EmployerName.Value);
+            jobData.Add(EmployerLocation.Value);
+            jobData.Add(JobType.Value);
+            jobData.Add(JobCoreCompetency.Value);
 
-            foreach(Object item in jobData){
-                if(item.Value == "")
+            for(int i = 0; i < jobData.Count; i++){
+                if(jobData[i] == "")
                 {
-                    item.Value = "Data not available"
+                    jobData[i] = "Data not available";
                 }
             }
         }
@@ -66,7 +66,7 @@ namespace TechJobsOO
             Location: {EmployerLocation}
             Position Type: {JobType}
             Core Competency: {JobCoreCompetency}
-            "
+            ";
         }
     }
 }
